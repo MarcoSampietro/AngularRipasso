@@ -1,0 +1,21 @@
+.evidenziato {
+    background-color: yellow;
+}
+.row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+button {
+    border: none;
+    margin: 5px;    
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #2b6fff;
+    color: white;
+    font-weight: 500;
+}
+button:hover {
+    opacity: 0.9;
+}

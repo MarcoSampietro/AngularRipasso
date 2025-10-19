@@ -1,16 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <h1>{{ variabile }}</h1>
-  <input [value]='variabile' readonly><br />
-  <button (click)='evento()'>Clicca per un evento</button>
-  <p>{{ messaggio }}</p>
-  <input [(ngModel)]='variabile'>
-  <p>il nome è {{ variabile }}</p>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>{{ variabile }}</h1>
+    
+    <input [value]='variabile' readonly><br />
+    
+    <button (click)='evento()'>Clicca per un evento</button>
+
+    <p>{{ messaggio }}</p>
+    <input [(ngModel)]='variabile'>
+    <p>il nome è {{ variabile }}</p>
+    <button (click)="mostramessaggio()">Mostra/Nascondi</button>
+    <p *ngIf="messaggiobool">messaggio nascosto</p>
+
+    <input #inputFrutto placeholder="Aggiungi un frutto">
+    <button (click)="aggiungiFrutto(inputFrutto.value)">Aggiungi</button>
+    <ul *ngFor="let frutto of frutti; let i = index">{{ i + 1 }}. {{ frutto }}
+      <button (click)="rimuoviFrutto(i)">Rimuovi</button>
+    </ul>
+
+    <button (click)="toggleEvidenzia()">Attiva/Disattiva evidenziazione</button>
+    <p [ngClass]="{ evidenziato: evidenzia }">
+      Questo testo cambia classe dinamicamente.
+    </p>
+    
+    <div class="row">
+      <button (click)="diminuisci()">A-</button>
+      <button (click)="aumenta()">A+</button>
+      <button (click)="cambiaColore('royalblue')">Blu</button>
+      <button (click)="cambiaColore('crimson')">Rosso</button>
+      <button (click)="cambiaColore('green')">Verde</button>
+    </div>
+    <p [ngStyle]="{ 'font-size.px': dimensione, color: colore }">
+      Dimensione: {{ dimensione }}px — Colore: {{ colore }}
+    </p>
+
+  </body>
 </html>
